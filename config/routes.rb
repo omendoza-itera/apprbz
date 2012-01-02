@@ -1,4 +1,6 @@
 Apprbz::Application.routes.draw do
+  resources :dishes
+
   resources :companies
 
   get "home/index"
