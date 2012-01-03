@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+﻿<p id="notice"><%= notice %></p>
 
 <p>
   <b>Name:</b>
@@ -45,6 +45,21 @@
   <%= @company.website %>
 </p>
 
+<h2>Platillos</h2>
+<% @company.dishes.each do |dish| %>
+  <p>
+    <b>Platillo:</b>
+    <%= dish.name %>
+  </p>
+ 
+  <p>
+    <b>Descripción:</b>
+    <%= dish.description%>
+  </p>
+<% end %>
+
+<%= render :partial=>"dishes/form" ,
+	 :locals => {:company => @company} %>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

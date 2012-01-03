@@ -1,7 +1,10 @@
 Apprbz::Application.routes.draw do
-  resources :dishes
+  
+  resources :users
 
-  resources :companies
+  resources :companies do
+	resources :dishes
+  end
 
   get "home/index"
 

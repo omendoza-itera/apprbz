@@ -40,14 +40,17 @@ class DishesController < ApplicationController
   # POST /dishes
   # POST /dishes.json
   def create
-    @dish = Dish.new(params[:dish])
-
+    #@dish = Dish.new(params[:dish])
+	@company = Company.find(params[:company_id])
+    @dish = @company.dishes.create(params[:dish])
+    #redirect_to post_path(@post)
     respond_to do |format|
       if @dish.save
-        format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
+        format.html { redirect_to @company, notice: 'El platillo se ha creado' }
         format.json { render json: @dish, status: :created, location: @dish }
       else
-        format.html { render action: "new" }
+        #format.html { render action: "new" }
+		format.html { redirect_to @company, notice: 'No se puede guardar el platillo' }
         format.json { render json: @dish.errors, status: :unprocessable_entity }
       end
     end
@@ -80,4 +83,6 @@ class DishesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  
 end
