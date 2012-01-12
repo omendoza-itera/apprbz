@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-before_filter :check_authentication
+#before_filter :check_authentication
   # GET /companies
   # GET /companies.json
   def index
