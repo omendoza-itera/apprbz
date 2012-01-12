@@ -56,6 +56,8 @@
     <b>Descripción:</b>
     <%= dish.description%>
   </p>
+  
+  <%= image_tag dish.picture.url %>
 <% end %>
 
 <%= render :partial=>"dishes/form" ,
