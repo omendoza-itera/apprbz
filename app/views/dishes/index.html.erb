@@ -13,19 +13,20 @@
   </tr>
 
 <% @dishes.each do |dish| %>
-  <tr>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= dish.name %></td>
     <td><%= dish.description %></td>
-    <td><%= dish.picture %></td>
+    <td><%= image_tag(dish.picture, class: 'list_image') %></td>
     <td><%= dish.cost %></td>
-    <td><%= dish.company %></td>
-    <td><%= link_to 'Show', dish %></td>
-    <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-    <td><%= link_to 'Destroy', dish, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= dish.company.name %></td>
+    <td class="list_actions">
+		<%= link_to 'Show', company_dish_path(@company, dish) %>
+    <%= link_to 'Edit', edit_company_dish_path(@company, dish) %>
+    <%= link_to 'Destroy', company_dish_path(@company, dish), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Dish', new_dish_path %>
+<%= link_to 'New Dish', new_company_dish_path %>

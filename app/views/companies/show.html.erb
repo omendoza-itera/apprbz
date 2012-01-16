@@ -1,4 +1,5 @@
-﻿<p id="notice"><%= notice %></p>
+﻿
+<p id="notice"><%= notice %></p>
 
 <p>
   <b>Name:</b>
@@ -46,22 +47,10 @@
 </p>
 
 <h2>Platillos</h2>
-<% @company.dishes.each do |dish| %>
-  <p>
-    <b>Platillo:</b>
-    <%= dish.name %>
-  </p>
- 
-  <p>
-    <b>Descripción:</b>
-    <%= dish.description%>
-  </p>
-  
-  <%= image_tag dish.picture.url %>
-<% end %>
+<%= render :partial => "dishes/dish", :collection =>@company.dishes %>
 
-<%= render :partial=>"dishes/form" ,
-	 :locals => {:company => @company} %>
+<%= render 'dishes/form' %>
 
+<br />
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

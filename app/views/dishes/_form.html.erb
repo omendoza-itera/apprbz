@@ -1,22 +1,48 @@
-<%= form_for([@company, @company.dishes.build]) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.file_field :picture %>
-  </div>
-  <div class="field">
-    <%= f.label :cost %><br />
-    <%= f.text_field :cost %>
-  </div>
+<% if @company %>
+	<%= form_for([@company, @company.dishes.build]) do |f| %>
+	  <div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+		<%= f.label :description %><br />
+		<%= f.text_field :description %>
+	  </div>
+	  <div class="field">
+		<%= f.label :picture %><br />
+		<%= f.file_field :picture %>
+	  </div>
+	  <div class="field">
+		<%= f.label :cost %><br />
+		<%= f.text_field :cost %>
+	  </div>
+	  
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+  <% end %>
+  <%else%>
+	<%= form_for (:dish) do |f| %>
+	  <div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+		<%= f.label :description %><br />
+		<%= f.text_field :description %>
+	  </div>
+	  <div class="field">
+		<%= f.label :picture %><br />
+		<%= f.file_field :picture %>
+	  </div>
+	  <div class="field">
+		<%= f.label :cost %><br />
+		<%= f.text_field :cost %>
+	  </div>
+	  
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+  <% end %>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

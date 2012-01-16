@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	validates_uniqueness_of :username
 
+	has_many :companies
+	
 	def self.authenticate(username, password)
 		user = User.find_by_mail(username)
 		#unless user && User.authenticate(password)

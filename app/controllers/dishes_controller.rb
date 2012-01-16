@@ -2,8 +2,9 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = Dish.all
-
+   @company = Company.find(params[:company_id])
+   @dishes = @company.dishes
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @dishes }
@@ -79,7 +80,7 @@ class DishesController < ApplicationController
     @dish.destroy
 
     respond_to do |format|
-      format.html { redirect_to dishes_url }
+      format.html { redirect_to company_dishes_url }
       format.json { head :ok }
     end
   end

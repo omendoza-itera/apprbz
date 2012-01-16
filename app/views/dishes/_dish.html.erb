@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Names:</b>
+  <%= dish.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= dish.description %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  
+  <%= image_tag dish.picture.url %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= dish.cost %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= dish.company.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_company_dish_path(dish.company.id,dish.id) %>
+
+
+
